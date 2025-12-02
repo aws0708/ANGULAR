@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
 import { CommonModule, JsonPipe } from '@angular/common';
 import { Student } from '../student';
@@ -15,6 +15,7 @@ export class MyTemplateFormComponent {
   std = new Student();
   showPassword = false;
   selectedHobbies: string[] = [];
+  @ViewChild('newForm') newForm!: NgForm;
 
   constructor(){
     this.std.country='';
