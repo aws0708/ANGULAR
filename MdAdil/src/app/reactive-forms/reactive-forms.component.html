@@ -1,128 +1,222 @@
 <div class="container py-5">
-    <div class="row justify-content-center">
-        <div class="col-md-6 col-lg-5">
-            <div class="bg-primary text-white p-4 text-center rounded mb-4">
-                <h1 class="h3 mb-0">Reactive Forms</h1>
-            </div>
+	<div class="row justify-content-center">
+		<div class="col-md-6 col-lg-5">
+			<div class="bg-primary text-white p-4 text-center rounded mb-4">
+				<h1 class="h3 mb-0">Reactive Forms</h1>
+			</div>
 
-            <form [formGroup]="signUpForm" (ngSubmit)="handleSubmit()">
+			<form [formGroup]="signUpForm" (ngSubmit)="handleSubmit()">
 
-                <!-- Name -->
-                <div class="mb-3">
-                    <label for="name" class="form-label">Enter name:</label>
-                    <input type="text" id="name" class="form-control" formControlName="name"
-                        [ngClass]="{'is-invalid': signUpForm.get('name')?.invalid && signUpForm.get('name')?.touched}"
-                        autocomplete="off" />
-                    <div class="invalid-feedback"
-                        *ngIf="signUpForm.get('name')?.touched && signUpForm.get('name')?.invalid">
-                        <div *ngIf="signUpForm.get('name')?.errors?.['required']">*Name is Required</div>
-                        <div *ngIf="signUpForm.get('name')?.errors?.['minlength']">*3 Characters Minimum</div>
-                        <div *ngIf="signUpForm.get('name')?.errors?.['maxlength']">*20 Characters Maximum</div>
-                    </div>
-                </div>
+				<!-- Name -->
+				<div class="mb-3">
+					<label for="name" class="form-label">Enter name:</label>
+					<input type="text" id="name" class="form-control" formControlName="name"
+						[ngClass]="{'is-invalid': signUpForm.get('name')?.invalid && signUpForm.get('name')?.touched}"
+						autocomplete="off" />
+					<div class="invalid-feedback"
+						*ngIf="signUpForm.get('name')?.touched && signUpForm.get('name')?.invalid">
+						<div *ngIf="signUpForm.get('name')?.errors?.['required']">*Name is Required</div>
+						<div *ngIf="signUpForm.get('name')?.errors?.['minlength']">*3 Characters Minimum</div>
+						<div *ngIf="signUpForm.get('name')?.errors?.['maxlength']">*20 Characters Maximum</div>
+					</div>
+				</div>
 
-                <!-- Age -->
-                <div class="mb-3">
-                    <label for="age" class="form-label">Enter age:</label>
-                    <input type="number" id="age" class="form-control" formControlName="age"
-                        [ngClass]="{'is-invalid': signUpForm.get('age')?.invalid && signUpForm.get('age')?.touched}" />
-                    <div class="invalid-feedback"
-                        *ngIf="signUpForm.get('age')?.touched && signUpForm.get('age')?.invalid">
-                        <div *ngIf="signUpForm.get('age')?.errors?.['required']">*Age is Required</div>
-                        <div *ngIf="signUpForm.get('age')?.errors?.['min']">*Minimum Age is 18</div>
-                        <div *ngIf="signUpForm.get('age')?.errors?.['max']">*Maximum Age is 60</div>
-                    </div>
-                </div>
+				<!-- Age -->
+				<div class="mb-3">
+					<label for="age" class="form-label">Enter age:</label>
+					<input type="number" id="age" class="form-control" formControlName="age"
+						[ngClass]="{'is-invalid': signUpForm.get('age')?.invalid && signUpForm.get('age')?.touched}" />
+					<div class="invalid-feedback"
+						*ngIf="signUpForm.get('age')?.touched && signUpForm.get('age')?.invalid">
+						<div *ngIf="signUpForm.get('age')?.errors?.['required']">*Age is Required</div>
+						<div *ngIf="signUpForm.get('age')?.errors?.['min']">*Minimum Age is 18</div>
+						<div *ngIf="signUpForm.get('age')?.errors?.['max']">*Maximum Age is 60</div>
+					</div>
+				</div>
 
-                <!-- Email -->
-                <div class="mb-3">
-                    <label for="email" class="form-label">Enter email:</label>
-                    <input type="email" id="email" class="form-control" formControlName="email"
-                        [ngClass]="{'is-invalid': signUpForm.get('email')?.invalid && signUpForm.get('email')?.touched}" />
-                    <div class="invalid-feedback"
-                        *ngIf="signUpForm.get('email')?.touched && signUpForm.get('email')?.invalid">
-                        <div *ngIf="signUpForm.get('email')?.errors?.['required']">*Email is Required</div>
-                        <div *ngIf="signUpForm.get('email')?.errors?.['pattern']">*Invalid email</div>
-                    </div>
-                </div>
+				<!-- Email -->
+				<div class="mb-3">
+					<label for="email" class="form-label">Enter email:</label>
+					<input type="email" id="email" class="form-control" formControlName="email"
+						[ngClass]="{'is-invalid': signUpForm.get('email')?.invalid && signUpForm.get('email')?.touched}" />
+					<div class="invalid-feedback"
+						*ngIf="signUpForm.get('email')?.touched && signUpForm.get('email')?.invalid">
+						<div *ngIf="signUpForm.get('email')?.errors?.['required']">*Email is Required</div>
+						<div *ngIf="signUpForm.get('email')?.errors?.['pattern']">*Invalid email</div>
+					</div>
+				</div>
 
-                <!-- Password -->
-                <div class="mb-3">
-                    <label for="password" class="form-label">Enter password:</label>
-                    <input type="password" id="password" class="form-control" formControlName="pass"
-                        [ngClass]="{'is-invalid': signUpForm.get('pass')?.invalid && signUpForm.get('pass')?.touched}"
-                        autocomplete="off" />
-                    <div class="invalid-feedback"
-                        *ngIf="signUpForm.get('pass')?.touched && signUpForm.get('pass')?.invalid">
-                        <div *ngIf="signUpForm.get('pass')?.errors?.['required']">*Password is Required</div>
-                        <div *ngIf="signUpForm.get('pass')?.errors?.['pattern']">*Invalid Password</div>
-                    </div>
-                </div>
+				<!-- Password -->
+				<!-- <div class="mb-3">
+					<label for="password" class="form-label">Enter password:</label>
+					<input type="password" id="password" class="form-control" formControlName="pass"
+						[ngClass]="{'is-invalid': signUpForm.get('pass')?.invalid && signUpForm.get('pass')?.touched}"
+						autocomplete="off" />
+					<div class="invalid-feedback"
+						*ngIf="signUpForm.get('pass')?.touched && signUpForm.get('pass')?.invalid">
+						<div *ngIf="signUpForm.get('pass')?.errors?.['required']">*Password is Required</div>
+						<div *ngIf="signUpForm.get('pass')?.errors?.['pattern']">*Invalid Password</div>
+					</div>
+				</div> -->
 
-                <!-- Gender (Radio Buttons) -->
-                <div class="mb-3">
-                    <label class="form-label d-block mb-2">Gender:</label>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" id="male" value="Male" name="gender"
-                            formControlName="gender" />
-                        <label for="male" class="form-check-label">Male</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" id="female" value="Female" name="gender"
-                            formControlName="gender" />
-                        <label for="female" class="form-check-label">Female</label>
-                    </div>
-                    <div class="invalid-feedback d-block"
-                        *ngIf="signUpForm.get('gender')?.touched && signUpForm.get('gender')?.invalid">
-                        *Gender is required
-                    </div>
-                </div>
+				<div formGroupName="passwordGroup" class="mb-3">
+					<label class="form-label">Password</label>
+					<input type="password" formControlName="password" class="form-control"
+						[class.is-invalid]="passwordGroup.get('password')?.invalid && passwordGroup.get('password')?.touched">
+					<div *ngIf="passwordGroup.get('password')?.invalid && passwordGroup.get('password')?.touched"
+						class="invalid-feedback">
+						<span *ngIf="passwordGroup.get('password')?.errors?.['required']">Password is required.</span>
+						<span *ngIf="passwordGroup.get('password')?.errors?.['minlength']">At least 6 characters.</span>
+					</div>
 
-                <!-- Country (Dropdown) -->
-                <div class="mb-3">
-                    <label for="country" class="form-label">Country:</label>
-                    <select id="country" class="form-select" formControlName="country"
-                        [ngClass]="{'is-invalid': signUpForm.get('country')?.invalid && signUpForm.get('country')?.touched}">
-                        <option value="">Select</option>
-                        <option value="INDIA">INDIA</option>
-                        <option value="CHINA">CHINA</option>
-                        <option value="USA">USA</option>
-                    </select>
-                    <div class="invalid-feedback"
-                        *ngIf="signUpForm.get('country')?.touched && signUpForm.get('country')?.invalid">
-                        *Country is required
-                    </div>
-                </div>
+					<label class="form-label mt-2">Confirm Password</label>
+					<input type="password" formControlName="confirmPassword" class="form-control"
+						[class.is-invalid]="passwordGroup.get('confirmPassword')?.invalid && passwordGroup.get('confirmPassword')?.touched">
+					<div *ngIf="passwordGroup.get('confirmPassword')?.invalid && passwordGroup.get('confirmPassword')?.touched"
+						class="invalid-feedback">
+						<span *ngIf="passwordGroup.get('confirmPassword')?.errors?.['required']">Confirmation is
+							required.</span>
+					</div>
 
-                <div class="form-check mb-3">
-                    <input type="checkbox" class="form-check-input" id="accept" formControlName="accept" />
-                    <label class="form-check-label" for="accept">
-                        I accept the Terms &amp; Conditions
-                    </label>
-                    <div *ngIf="signUpForm.get('accept')?.touched && signUpForm.get('accept')?.invalid"
-                        class="invalid-feedback d-block">
-                        *You must accept the Terms &amp; Conditions
-                    </div>
-                </div>
-                <div class="mb-3">
-                    <label for="">Hobbies:</label>
-                    <div *ngFor="let hobby of hobbiesArray; let i = index;">
-                      <label [for]="hobby">
-                        <input type="checkbox" (change)="onChange($event)" class="form-check-input" [value]="hobby" name="" [id]="hobby">
-                        {{ hobby }}
-                      </label>
-                    </div>
-                </div>
+					<!-- Group-level error shown once -->
+					<div *ngIf="$any(passwordGroup).errors?.passwordsDoNotMatch && passwordGroup.get('confirmPassword').touched"
+						class="text-danger mt-2">
+						Passwords do not match.
+					</div>
+				</div>
 
-                <br>
-                <!-- Submit -->
-                <div class="d-grid">
-                    <button type="submit" class="btn btn-primary" [disabled]="signUpForm.invalid">
-                        Submit
-                    </button>
-                </div>
+				<!-- Gender (Radio Buttons) -->
+				<div class="mb-3">
+					<label class="form-label d-block mb-2">Gender:</label>
+					<div class="form-check form-check-inline">
+						<input class="form-check-input" type="radio" id="male" value="Male" name="gender"
+							formControlName="gender" />
+						<label for="male" class="form-check-label">Male</label>
+					</div>
+					<div class="form-check form-check-inline">
+						<input class="form-check-input" type="radio" id="female" value="Female" name="gender"
+							formControlName="gender" />
+						<label for="female" class="form-check-label">Female</label>
+					</div>
+					<div class="invalid-feedback d-block"
+						*ngIf="signUpForm.get('gender')?.touched && signUpForm.get('gender')?.invalid">
+						*Gender is required
+					</div>
+				</div>
 
-            </form>
-        </div>
-    </div>
+				<!-- Country (Dropdown) -->
+				<div class="mb-3">
+					<label for="country" class="form-label">Country:</label>
+					<select id="country" class="form-select" formControlName="country"
+						[ngClass]="{'is-invalid': signUpForm.get('country')?.invalid && signUpForm.get('country')?.touched}">
+						<option value="">Select</option>
+						<option value="INDIA">INDIA</option>
+						<option value="CHINA">CHINA</option>
+						<option value="USA">USA</option>
+					</select>
+					<div class="invalid-feedback"
+						*ngIf="signUpForm.get('country')?.touched && signUpForm.get('country')?.invalid">
+						*Country is required
+					</div>
+				</div>
+
+				<div class="form-check mb-3">
+					<input type="checkbox" class="form-check-input" id="accept" formControlName="accept" />
+					<label class="form-check-label" for="accept">
+						I accept the Terms &amp; Conditions
+					</label>
+					<div *ngIf="signUpForm.get('accept')?.touched && signUpForm.get('accept')?.invalid"
+						class="invalid-feedback d-block">
+						*You must accept the Terms &amp; Conditions
+					</div>
+				</div>
+				<div class="mb-3">
+					<label for="">Hobbies:</label>
+					<div *ngFor="let hobby of hobbiesArray; let i = index;">
+						<label [for]="hobby">
+							<input type="checkbox" (change)="onChange($event)" class="form-check-input" [value]="hobby"
+								name="" [id]="hobby">
+							{{ hobby }}
+						</label>
+					</div>
+				</div>
+				<!-- City and Zipcode (Nested FormGroup) -->
+				<fieldset [formGroup]="addressGroup" class="border rounded p-3 mb-3">
+					<legend class="w-auto px-2">Address</legend>
+					<div class="mb-3">
+						<label for="street" class="form-label">Street</label>
+						<input type="text" id="street" class="form-control" formControlName="street"
+							[class.is-invalid]="addressGroup.get('street')?.invalid && addressGroup.get('street')?.touched" />
+						<div *ngIf="addressGroup.get('street')?.invalid && addressGroup.get('street')?.touched"
+							class="invalid-feedback">
+							Street is required.
+						</div>
+					</div>
+					<div class="mb-3">
+						<label for="city" class="form-label">City</label>
+						<input type="text" id="city" class="form-control" formControlName="city"
+							[class.is-invalid]="addressGroup.get('city')?.invalid && addressGroup.get('city')?.touched" />
+						<div *ngIf="addressGroup.get('city')?.errors && addressGroup.get('city')?.touched"
+							class="invalid-feedback">
+							<span *ngIf="addressGroup.get('city')?.errors?.['required']">City is required.</span>
+							<span *ngIf="addressGroup.get('city')?.errors?.['minlength']">Min 2 characters.</span>
+						</div>
+					</div>
+					<div class="mb-3">
+						<label for="zip" class="form-label">ZIP Code</label>
+						<input type="text" id="zip" class="form-control" formControlName="zip"
+							[class.is-invalid]="addressGroup.get('zip')?.invalid && addressGroup.get('zip')?.touched" />
+						<div *ngIf="addressGroup.get('zip')?.errors && addressGroup.get('zip')?.touched"
+							class="invalid-feedback">
+							<span *ngIf="addressGroup.get('zip')?.errors?.['required']">ZIP is required.</span>
+							<span *ngIf="addressGroup.get('zip')?.errors?.['pattern']">ZIP must be 5 digits.</span>
+						</div>
+					</div>
+				</fieldset>
+
+				<!-- Dynamic Phone Numbers Array -->
+				<div formArrayName="phoneNumbers" class="mb-3">
+					<label class="form-label">Phone Numbers</label>
+					<div *ngFor="let phoneGroup of phoneNumbers.controls; let i = index" [formGroupName]="i"
+						class="row align-items-end mb-2">
+						<div class="col">
+							<input maxlength="10" formControlName="phone" class="form-control"
+								placeholder="Enter 10-digit phone"
+								[class.is-invalid]="phoneGroup.get('phone')?.invalid && phoneGroup.get('phone')?.touched" />
+							<div class="invalid-feedback"
+								*ngIf="phoneGroup.get('phone')?.touched && phoneGroup.get('phone')?.invalid">
+								<span *ngIf="phoneGroup.get('phone')?.errors?.['required']">Phone is required.</span>
+								<span *ngIf="phoneGroup.get('phone')?.errors?.['pattern']">Must be 10 digits.</span>
+							</div>
+						</div>
+						<div class="col-auto">
+							<button type="button" class="btn btn-danger" (click)="removePhone(i)"
+								[disabled]="phoneNumbers.length === 1" title="Remove">
+								&minus;
+							</button>
+						</div>
+					</div>
+					<button type="button" class="btn btn-success btn-sm mt-2" (click)="addPhone()">+ Add Phone</button>
+					<!-- Group-level error for duplicates -->
+					<div *ngIf="$any(phoneNumbers).errors?.duplicatePhones && phoneNumbers.touched"
+						class="text-danger mt-2">
+						*Duplicate phone numbers are not allowed.
+					</div>
+				</div>
+				<button type="button" class="btn btn-outline-secondary me-2" (click)="fillPreset()">Fill All
+					(setValue)</button>
+				<button type="button" class="btn btn-outline-secondary" (click)="patchCityEmail()">Quick Update
+					(patchValue)</button>
+
+				<br>
+				<!-- Submit -->
+				<div class="d-grid">
+					<button type="submit" class="btn btn-primary" [disabled]="signUpForm.invalid">
+						Submit
+					</button>
+				</div>
+
+			</form>
+		</div>
+	</div>
 </div>
