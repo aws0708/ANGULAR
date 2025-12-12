@@ -1,2 +1,4 @@
-<h2> Hello Services </h2>
+<!-- <h2> Hello Services </h2> -->
+ <app-studentlist (selectedStudentId)="selectedId = $event"></app-studentlist>
+ <app-studentdata [studentId]="selectedId" (cancel)="selectedId = null"></app-studentdata>
 <router-outlet />

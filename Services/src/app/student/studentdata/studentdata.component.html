@@ -1,1 +1,14 @@
-<p>studentdata works!</p>
+<div *ngIf="student" class="card mt-3 p-3">
+  <h5>Student Details</h5>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item"><strong>ID:</strong> {{student.id}}</li>
+    <li class="list-group-item"><strong>Name:</strong> {{student.name}}</li>
+    <li class="list-group-item"><strong>Age:</strong> {{student.age}}</li>
+    <li class="list-group-item"><strong>Grade:</strong> {{student.grade}}</li>
+    <li class="list-group-item"><strong>Email:</strong> {{student.email}}</li>
+  </ul>
+  <button class="btn btn-secondary mt-3" (click)="onCancel()">Cancel</button>
+</div>
+<div *ngIf="!student" class="alert alert-info mt-3">
+  Select a student to view details.
+</div>
