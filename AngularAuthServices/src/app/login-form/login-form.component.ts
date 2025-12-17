@@ -6,7 +6,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card'
-import { Router } from '@angular/router';
+import { Router, RouterOutlet, RouterLink } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 
 @Component({
@@ -19,8 +19,10 @@ import { AuthService } from '../services/auth.service';
     MatInputModule,
     MatButtonModule,
     MatIconModule,
-    MatCardModule
-  ],
+    MatCardModule,
+    RouterOutlet,
+    RouterLink
+],
   templateUrl: './login-form.component.html',
   styleUrl: './login-form.component.scss'
 })
@@ -73,6 +75,7 @@ export class LoginFormComponent {
     this.auth.login(this.loginForm.value as any).subscribe({
       next: (response: any) => {
         if(response.result){
+          localStorage.setItem('angular20Token',response.data.token);
           this.router.navigateByUrl('/dashboard');
           this.loggedInUser = response.data;
           console.log("Logged User Data is ", this.loggedInUser);
