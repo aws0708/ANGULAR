@@ -27,6 +27,8 @@ export class SignupComponent {
       // altMobileNo: [''],
       emailId: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]]
+      // password: ['']
+
     });
   }
 
@@ -36,11 +38,22 @@ export class SignupComponent {
     if (this.signupForm.valid) {
       this.http.post('https://freeapi.miniprojectideas.com/api/User/CreateNewUser', this.signupForm.value)
         .subscribe({
-          next: () => {
+          next: (res:any) => {
+            if(!res.result){
+              this.signUpSuccess = false;
+              this.signUpError = res.message;
+              alert("Existing Email, Signup with different email and password")
+            }
+            else{
             this.signUpSuccess = true;
             this.signUpError = '';
             this.signupForm.reset({ userId: 0 });
             // this.router.navigateByUrl('/login');
+            alert("Signed up Successfully, Please login");
+            this.router.navigateByUrl('/login');
+            }
+            console.log(res);
+            
           },
           error: () => {
             this.signUpError = 'Sign up failed. Please try again later.';

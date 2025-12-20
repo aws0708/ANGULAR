@@ -76,6 +76,7 @@ export class LoginFormComponent {
       next: (response: any) => {
         if(response.result){
           localStorage.setItem('angular20Token',response.data.token);
+          alert("Logged In Successfully !")
           this.router.navigateByUrl('/dashboard');
           this.loggedInUser = response.data;
           console.log("Logged User Data is ", this.loggedInUser);
@@ -85,6 +86,7 @@ export class LoginFormComponent {
         }
         else{
           alert("Not an existing user, SignUp first");
+          this.router.navigateByUrl('/signup');
         }
       },
       error: (error: any) => {

@@ -46,6 +46,7 @@ export class AuthService {
     this.loggedInSubject.next(false);
     this.userSubject.next(null);
     localStorage.removeItem('user');
+    localStorage.removeItem('angular20Token');
     // this.router.navigateByUrl('/login');
     this.router.navigate(['/login']);
   }
